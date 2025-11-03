@@ -2,9 +2,7 @@ import { Instagram, Facebook, Twitter } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Instagram, href: "https://instagram.com/royalescape", label: "Instagram" },
-    { icon: Facebook, href: "https://facebook.com/royalescape", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/royalescape", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/royale_escape/", label: "Instagram" },
   ];
 
   return (
