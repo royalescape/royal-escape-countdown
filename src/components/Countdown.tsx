@@ -10,7 +10,7 @@ const Countdown = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-01-01T00:00:00").getTime();
+    const targetDate = new Date("2025-01-01T00:00:00+00:00").getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
@@ -23,10 +23,21 @@ const Countdown = () => {
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000),
         });
+      } else {
+        // Countdown finished - show zeros
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
       }
     };
 
+    // Calculate immediately on mount
     calculateTimeLeft();
+    
+    // Update every second
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
