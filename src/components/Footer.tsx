@@ -6,7 +6,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full py-8 px-6 border-t border-border/30 animate-fade-in" style={{ animationDelay: "1.2s" }}>
+    <footer className="w-full py-8 px-6 border-t border-border/30 animate-fade-in relative z-20" style={{ animationDelay: "1.2s" }}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-center md:text-left">
           <p className="text-sm text-muted-foreground">
