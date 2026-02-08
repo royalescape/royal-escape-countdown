@@ -17,7 +17,7 @@ const db = getFirestore(app);
 
 export const saveEmailToFirebase = async (email: string) => {
   try {
-    await addDoc(collection(db, "adventure_signups"), {
+    await addDoc(collection(db, "email_signups"), {
       email,
       timestamp: serverTimestamp(),
     });

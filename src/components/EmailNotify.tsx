@@ -9,6 +9,7 @@ const EmailNotify = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log(`Saving to firebase: ${email}`);
     e.preventDefault();
     
     if (!email || !email.includes("@")) {
