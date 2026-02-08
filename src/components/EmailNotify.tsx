@@ -18,14 +18,23 @@ const EmailNotify = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("You're on the list! We'll notify you when we launch.", {
-      description: "Get ready for exclusive rewards and experiences!"
-    });
-    
-    setEmail("");
+    // Save to Firebase
+    try {
+      const { saveEmailToFirebase } = await import("@/lib/firebase");
+      const result = await saveEmailToFirebase(email);
+
+      if (result.success) {
+        toast.success("You're on the list! We'll notify you when we launch.", {
+          description: "Get ready for exclusive rewards and experiences!"
+        });
+        setEmail("");
+      } else {
+        toast.error("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Firebase error:", error);
+      toast.error("Failed to save email. Please try again.");
+    }
     setIsSubmitting(false);
   };
 
