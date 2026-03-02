@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Existing rule for adventure_signups
+    match /adventure_signups/{document=**} {
+      allow read, write: if true;
+    }
+    
+    // New rule for emails collection
+    match /emails/{document} {
+      allow create: if true;
+      allow read: if false;
+    }
+  }
+}
